@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JLB Sign | Custom Illuminated Signs</title>
+    <!-- 引入Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入Font Awesome图标 -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 配置品牌色调（匹配logo蓝色） -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00A8E8', // 匹配logo的蓝色主色调
+                        dark: '#1A1A2E',   
+                        light: '#F5F5F7',  
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 0 10px rgba(0, 168, 232, 0.8);
+            }
+            .card-hover {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            }
+        }
+    </style>
+</head>
+<body class="bg-dark text-light">
+    <!-- 导航栏 -->
+    <nav class="fixed w-full bg-dark/90 backdrop-blur-sm z-50 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- 品牌Logo与名称 -->
+            <a href="#" class="flex items-center">
+                <img src="image/logo/logo.png" alt="JLB Sign Logo" class="h-10 w-auto mr-2">
+                <span class="text-2xl font-bold text-primary text-shadow">JLB Sign</span>
+            </a>
+            
+            <!-- 桌面端导航 -->
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:text-primary transition-colors">Home</a>
+                <a href="#products" class="hover:text-primary transition-colors">Products</a>
+                <a href="#gallery" class="hover:text-primary transition-colors">Gallery</a>
+                <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+            </div>
+            
+            <!-- 移动端汉堡菜单 -->
+            <button class="md:hidden text-2xl" id="menuBtn">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- 移动端菜单（默认隐藏） -->
+        <div class="md:hidden hidden bg-dark/95 w-full" id="mobileMenu">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+                <a href="#home" class="py-2 hover:text-primary transition-colors">Home</a>
+                <a href="#products" class="py-2 hover:text-primary transition-colors">Products</a>
+                <a href="#gallery" class="py-2 hover:text-primary transition-colors">Gallery</a>
+                <a href="#contact" class="py-2 hover:text-primary transition-colors">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页Hero区 -->
+    <section id="home" class="pt-24 md:pt-0 min-h-screen flex items-center relative">
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/id/1076/1920/1080" alt="Illuminated sign background" 
+                 class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-r from-dark to-dark/70"></div>
+        </div>
+        <div class="container mx-auto px-4 py-20 relative z-10">
+            <div class="max-w-2xl">
+                <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight mb-6">
+                    Custom <span class="text-primary text-shadow">Illuminated Signs</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-8 text-gray-300">
+                    <em>Make your business greater</em> with our high-quality LED sign solutions.
+                </p>
+                <a href="#products" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium px-8 py-3 rounded-md transition-all">
+                    Explore Products <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品类型区（已扩展为6个产品） -->
+    <section id="products" class="py-20 bg-gradient-to-b from-dark to-dark/95">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-center mb-16">
+                Our <span class="text-primary">Sign Types</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 产品1：RGB Sign -->
+                <div class="bg-gray-900/50 rounded-lg overflow-hidden card-hover">
+                    <img src="image/product/3D/t3.png" alt="3D Letters" 
+                         class="w-full h-64 object-cover"> <!-- 统一图片高度为h-64，更美观 -->
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-primary">RGB Sign</h3>
+                        <p class="text-gray-300 mb-4">
+                            Most popular style for all over the world. 100 Rgb colors you can choose.
+                        </p>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><i class="fa fa-check text-primary mr-2"></i>Waterproof</li>
+                            <li><i class="fa fa-check text-primary mr-2"></i>5-years lifespan</li>
+                            <li><i class="fa fa-check text-primary mr-2"></i>Custom sizes</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 产品2：Neon Sign -->
+                <div class="bg-gray-900/50 rounded-lg overflow-hidden card-hover">
+                    <img src="image/product/neon/1.png" alt="Neon Sign" 
+                         class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-primary">Neon Sign</h3>
+                        <p class="text-gray-300 mb-4">
+                            Neon Light, any shape, any size and any color.
+                        </p>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><i class="fa fa-check text-primary mr-2"></i>High visibility</li>
+                            <li><i class="fa fa-check text-primary mr-2"></i>Weather-resistant</li>
+                            <li><i class="fa fa-check text-primary mr-2"></i>Energy efficient</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 产品3：Adyss -->
+                <div class="bg-gray-900/50 rounded-lg overflow-hidden card-hover">
+                    <img src="image/product/abyss/1.png" alt="Infinite Abyss Sign" 
+                         class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-primary">Abyss Letter</h3>
+                        <p class="text-gray-300 mb-4">
+                            Industrial-style signs with visible LED bulbs, ideal for vintage branding.
+                        </p>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><i class="fa fa-check text-primary mr-2"></i>Mysterious</li>
+                            <li><i class="fa fa-check text-primary mr-2"></i>Easy maintenance</li>
+                            <li><i class="fa fa-check text-primary mr-2"></i>Different Colors</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 新增产品4：Diamond Letter -->
+                <div class="bg-gray-900/50 rounded-lg overflow-hidden card-hover">
+                    <img src="image/product/Diamond Letter/1.png" alt="LED Channel Letters" 
+                         class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-primary">Diamond Letter</h3>
+                        <p class="text-gray-300 mb-4">
+                            Sleek, modern 3D letters with hidden LEDs, perfect for storefront branding.
+                        </p>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><i class="fa fa-check text-primary mr-2"></i>Blink</li>
+                            <li><i class="fa fa-check text-primary mr-2"></i>Bright</li>
+                            <li><i class="fa fa-check text-primary mr-2"></i>Stable</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 新增产品5：Backlit Signs -->
+                <div class="bg-gray-900/50 rounded-lg overflow-hidden card-hover">
+                    <img src="image/product/Backlit/1.png" alt="Backlit Signs" 
+                         class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-primary">Backlit Signs</h3>
+                        <p class="text-gray-300 mb-4">
+                            Illuminated from behind for a soft, glowing effect, great for indoor displays.
+                        </p>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><i class="fa fa-check text-primary mr-2"></i>Soft glow</li>
+                            <li><i class="fa fa-check text-primary mr-2"></i>Thin design</li>
+                            <li><i class="fa fa-check text-primary mr-2"></i>Easy installation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 新增产品6：Square floor -->
+                <div class="bg-gray-900/50 rounded-lg overflow-hidden card-hover">
+                    <img src="image/product/Square Floor/1.png" alt="Acrylic Light Boxes" 
+                         class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-3 text-primary">Square Floor</h3>
+                        <p class="text-gray-300 mb-4">
+                            Transparent acrylic boxes with internal LEDs, ideal for logos and advertisements.
+                        </p>
+                        <ul class="space-y-2 text-gray-400">
+                            <li><i class="fa fa-check text-primary mr-2"></i>Multiple colors</li>
+                            <li><i class="fa fa-check text-primary mr-2"></i>Metal material</li>
+                            <li><i class="fa fa-check text-primary mr-2"></i>Essential for Hotel &&KTV</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- 案例展示区 -->
+<section id="gallery" class="py-20 bg-dark">
+    <div class="container mx-auto px-4">
+        <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-center mb-16">
+            Project <span class="text-primary">Gallery</span>
+        </h2>
+        
+        <div class="mb-12 text-center">
+            <p class="text-gray-300 max-w-2xl mx-auto">
+                See our illuminated signs in action across various industries.
+            </p>
+        </div>
+        
+        <!-- 图片+视频混合网格（保持原布局，视频与图片尺寸一致） -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <!-- 视频1：替换第一张图片 -->
+            <video 
+                src="image/gallery/1.mp4" 
+                class="w-full h-64 object-cover rounded-md hover:opacity-80 transition-opacity"
+                controls  <!-- 必须有这个属性，才会显示播放/暂停按钮 -->
+                loop 
+                muted 
+                playsinline
+                title="Retail store sign video"  <!-- video标签没有alt属性，用title代替语义描述 -->
+            >   
+                您的浏览器不支持视频播放
+            </video>
+            
+            <!-- 图片1 -->
+            <!-- <img src="images/restaurant-sign.jpg" alt="Restaurant sign" class="w-full h-64 object-cover rounded-md hover:opacity-80 transition-opacity"> -->
+            
+            <!-- 视频2：新增视频 -->
+            <video 
+                src="image/gallery/2.mp4" 
+                class="w-full h-64 object-cover rounded-md hover:opacity-80 transition-opacity"
+                controls  <!-- 必须有这个属性，才会显示播放/暂停按钮 -->
+                loop 
+                muted 
+                playsinline
+                title="Retail store sign video"  <!-- video标签没有alt属性，用title代替语义描述 -->
+            >   
+                您的浏览器不支持视频播放
+            </video>
+            <video 
+                src="image/gallery/3.mp4" 
+                class="w-full h-64 object-cover rounded-md hover:opacity-80 transition-opacity"
+                controls  <!-- 必须有这个属性，才会显示播放/暂停按钮 -->
+                loop 
+                muted 
+                playsinline
+                title="Retail store sign video"  <!-- video标签没有alt属性，用title代替语义描述 -->
+            >   
+                您的浏览器不支持视频播放
+            </video>
+
+             <video 
+                src="image/gallery/4.mp4" 
+                class="w-full h-64 object-cover rounded-md hover:opacity-80 transition-opacity"
+                controls  <!-- 必须有这个属性，才会显示播放/暂停按钮 -->
+                loop 
+                muted 
+                playsinline
+                title="Retail store sign video"  <!-- video标签没有alt属性，用title代替语义描述 -->
+            >   
+                您的浏览器不支持视频播放
+            </video>
+            <!-- 图片2 -->
+            <!-- <img src="images/outdoor-sign.jpg" alt="Outdoor sign" class="w-full h-64 object-cover rounded-md hover:opacity-80 transition-opacity"> -->
+            
+            <!-- 其他图片继续保留 -->
+            <!-- <img src="images/cafe-sign.jpg" alt="Cafe sign" class="w-full h-64 object-cover rounded-md hover:opacity-80 transition-opacity">
+            <img src="images/bar-sign.jpg" alt="Bar sign" class="w-full h-64 object-cover rounded-md hover:opacity-80 transition-opacity">
+            <img src="images/hotel-sign.jpg" alt="Hotel sign" class="w-full h-64 object-cover rounded-md hover:opacity-80 transition-opacity">
+            <img src="images/mall-sign.jpg" alt="Shopping mall sign" class="w-full h-64 object-cover rounded-md hover:opacity-80 transition-opacity"> -->
+        </div>
+    </div>
+</section>
+
+    <!-- 联系区 -->
+    <section id="contact" class="py-20 bg-gray-900/30">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-center mb-16">
+                Get in <span class="text-primary">Touch</span>
+            </h2>
+            
+            <div class="max-w-3xl mx-auto bg-dark/70 rounded-lg p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Contact Information</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fa fa-envelope text-primary text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <p class="font-medium">Email</p>
+                                    <p class="text-gray-400">jlblightsign@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fa fa-phone text-primary text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <p class="font-medium">Phone</p>
+                                    <p class="text-gray-400">+86 13143030842</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fa fa-map-marker text-primary text-xl mt-1 mr-4"></i>
+                                <div>
+                                    <p class="font-medium">Location</p>
+                                    <p class="text-gray-400">Baihui Park Industrial Park, Daling, Huidong County, Huizhou City, Guangdong Province, P.R. China</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-6">Request a Quote</h3>
+                        <p class="text-gray-300 mb-4">
+                            For custom sign inquiries, send us your requirements and we'll get back to you.
+                        </p>
+                        <a href="mailto:info@jlbsign.com" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium px-6 py-2 rounded-md transition-all">
+                            Send Email <i class="fa fa-paper-plane ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-8 bg-dark border-t border-gray-800">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400 mb-4">
+                &copy; 2025 JLB Sign. All rights reserved.
+            </p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                    <i class="fa fa-instagram"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-primary transition-colors">
+                    <i class="fa fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 简单交互JS -->
+    <script>
+        // 移动端菜单切换
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // 切换图标（汉堡/关闭）
+            const icon = menuBtn.querySelector('i');
+            if (icon.classList.contains('fa-bars')) {
+                icon.classList.replace('fa-bars', 'fa-times');
+            } else {
+                icon.classList.replace('fa-times', 'fa-bars');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // 减去导航栏高度
+                        behavior: 'smooth'
+                    });
+                    
+                    // 关闭移动端菜单（如果打开）
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        menuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
